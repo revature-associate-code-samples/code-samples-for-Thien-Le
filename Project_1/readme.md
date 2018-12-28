@@ -1,4 +1,4 @@
-Project 1 - Full-Stack Java Employee Reimbursement Application
+# Project 1 - Full-Stack Java Employee Reimbursement Application
 This project is a CRUD application for requesting, viewing, approving, and denying financial reimbursements. Within this project, there are two separate user roles: manager and employee. The project uses SQL and JDBC for data persistence uses the DAO design pattern extensively.
 
 Employees can request to be reimbursed for their expenses by submitting a request to a manager. They are able to view all requests that they've made: pending, approved, and denied. Additionally, employees can view their own profile and edit their profile information (e.g., name).
