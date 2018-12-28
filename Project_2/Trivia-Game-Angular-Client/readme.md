@@ -1,4 +1,4 @@
- Project 2 - Trivia Townes
+ # Project 2 - Trivia Townes
 
  Angular/Front-end: https://github.com/revature-associate-code-samples/code-samples-for-Thien-Le/tree/master/Trivia-Game-Angular-Client
  
