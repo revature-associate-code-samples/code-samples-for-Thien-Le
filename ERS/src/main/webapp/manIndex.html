@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Expense Redistribution System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#" id="homeNav">ERS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    <a class="nav-item nav-link" id="all">View All Reimbursements</a>
+     <a class="nav-item nav-link" id="pending">View Pending Reimbursements</a>
+      <a class="nav-item nav-link" id="approve">View Approved Reimbursements</a>
+      <a class="nav-item nav-link" id="deny">View Denied Reimbursements</a>
+      <a class="nav-item nav-link" id="edit">Approve/Deny Reimbursements</a> 
+      
+    </div>
+  </div>
+</nav>
+
+	
+
+	<div class="jumbotron">
+	
+		<div class="row">
+
+                <div class="col-10">
+                    
+                    <h4></h4>
+                </div>
+                <div class="col-2">
+                   
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu"   data-toggle ="dropdown" aria-haspopup="true" aria-expanded="false">
+				  
+						</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+						<form action="logout" method="get">
+						<input type="submit" value="Logout" class="btn btn-link">
+						</form>
+				  
+				</div>
+			  </div>
+             </div> 
+            </div> 
+	
+	<h2 id="title"></h2>
+	
+	<div>
+		<form action="manager" method="post" id="form" hidden="true">
+		<select name="option" id="list"></select>
+    	<hr> <h3>Approve or deny reimbursement</h3><br>
+    	<input type="radio" name="decision" value="deny"> Deny<br>
+  			<input type="radio" name="decision" value="approve"> Approve<br>
+  			<input type="submit" value="Submit">
+  			<input type="reset" value="Reset">
+   	 </form><hr>
+    
+    	
+	</div>
+	
+	<div class="row">
+
+                <div class="col-2">
+                    
+                    <ol id="name"></ol>
+                </div>
+                <div class="col-10">
+                    
+                    <ul id="reimbursementList"></ul>
+                </div>
+ 	</div>
+ 	
+	</div>
+
+
+	
+
+
+
+
+<script src = "manErs.js" type="text/javascript"></script>
+<script type="text/javascript" src="bootstrap.bundle.min.js / bootstrap.bundle.js"></script>
+</body>
+</html>
