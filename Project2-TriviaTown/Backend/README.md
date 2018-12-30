@@ -1,16 +1,12 @@
-# TriviaTownesServer
+# Project 2 - Trivia Townes
+Back-end: https://github.com/revature-associate-code-samples/code-samples-for-Thien-Le/tree/master/Project2/Backend
 
-## Setup
-- Open Eclipse
-- Go to Project -> Open Projects From File System
-- Click directory and select the TriviaTownesServer directory
-- (This does not need to be in your current workspace)
-- Note: Eclipse will not copy the project, it will just modify it in another directory.
-- Click finish
-- Set up a Tomcat 9 server if you haven't already in the workspace
-- Run the server and navigate to /example in the browser
-- If all goes well "testing" will show up on the window
-- Let me know if you have any issues getting the server to run
-- Follow the steps provided in the CORS section of this document
-- 
-```
+Trivia Townes provides a real-time, competitive multiplayer trivia experience. Users have the ability to join existing game lobbies or create a custom game lobby. Created lobbies can then be found by other users on the server lobby page. Upon joining an existing lobby, users are redirected to a communal waiting page until the game begins. Players are scored according to accuracy and speed. After the game ends, scores are persisted to a database. Users then have the ability to view the global leaderboard.
+
+My primary roles in this project involved working extensively with our back-end application and some of front-end.
+
+For back-end, I handled the retrieval of api data. I created a some classes that map the JSON objects i got from the api.
+
+For the client-side/front-end of the application, I used Angular to create a single page application. Using TypeScript to add populate players on the waiting page. Also, i wrote various databinding and DOM manipulation tasks.
+
+Technologies used include: EC2, Agile, S3, RDS, DevOps, Continuous Integration, Spring, Angular, HTML5, Bootstrap, Java
