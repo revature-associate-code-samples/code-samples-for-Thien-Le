@@ -11,7 +11,7 @@ Trivia Townes provides a real-time, competitive multiplayer trivia experience. U
 
 My primary roles in this project involved working mostly with back-end application and adding some functionalities to the front-end.
 
-## Project 3 - Caliber
+## Project 3 - Caliber Performance Management Suite
 Caliber is a performance management suite to collect and analyze evaluations of Revature trainees. Trainers can input grades and feedback for each of their trainees. The quality department can input their evaluations on the batch of trainees. Trainers and quality personnel can comment on a trainee's profile. The Caliber suite also provides a variety of reports on different levels of granularity using visual dashboards and tabular data. Users can generate individual and batch PDF reports to distribute to clients, trainees, and other stakeholders.
 
 In this project, i was resposible for working extensively with the back-end application and the microservice ecosystem.
