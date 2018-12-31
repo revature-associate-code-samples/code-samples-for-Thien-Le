@@ -4,15 +4,14 @@ Caliber is a performance management suite used to collect and analyze evaluation
 
 My duties for the Rideforce project included:
 
-  Set up the batch audit service.
-  Used Hibernate interfaces such as HQL and Criteria to create statements for the database.
-  Created Beans, Repositories, Services, RestController for the application.
-  Implemented FeignClient interfaces to fetch data from our service to other service.
-  Implemented CRUD methods and created REST endpoints for each method.
-  Retrieved and updated trainee table from user-service.
-  Used RESTful web services to access functionalities of the application.
-  Made a note table for our service.
-  Saved, updated, retrieved note object.
-  Utilized Spring Cloud to set up a micro-services system.
+* Used Hibernate interfaces such as HQL and Criteria to create statements for the database.
+* Created Beans, Repositories, Services, RestController for the application.
+* Implemented FeignClient interfaces to fetch data from our service to other service.
+* Implemented CRUD methods and created REST endpoints for each method.
+* Retrieved and updated trainee table from user-service.
+* Used RESTful web services to access functionalities of the application.
+* Made a note entity for our service.
+* Saved, updated, retrieved note object.
+* Utilized Spring Cloud to set up a micro-services system.
   
-  Technologies I've used for this project included: Java, Spring, REST, SQL, Angular, HTML, Bootstrap, CSS, Git, JPA, Microservices
+  Technologies I've used for this project included: **Java, Spring, REST, SQL, Angular, HTML, Bootstrap, CSS, Git, JPA, Microservices**
