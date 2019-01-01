@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { StompService } from '@stomp/ng2-stompjs';
-import { Message, StompHeaders } from '@stomp/stompjs';
 import { Subscription, Observable } from 'rxjs';
 
 import { GlobalsService } from '../globals.service';
@@ -14,15 +12,6 @@ import { GlobalsService } from '../globals.service';
 })
 export class WaitingPageComponent implements OnInit, OnDestroy {
 
-  // Stream of messages
-  public data_subscription: Subscription;
-  public data_observable: Observable<Message>;
-
-  // Stream of chats
-  public chat_subscription: Subscription;
-  public chat_observable: Observable<Message>;
-
-  public _stompService: StompService;
 
   public gameCategory;
   public gameNumberOfQuestion;
@@ -32,94 +21,10 @@ export class WaitingPageComponent implements OnInit, OnDestroy {
 
   public userId;
 
-  public chats = [];
-
   users: any;
 
   // Subscription status
   public subscribed = false;
-
-  StompConfig = {
-    url: this.globals.getSocketUrl() + 'join-waiting-lobby',
-    headers: {
-
-    },
-    heartbeat_in: 0, // Typical value 0 - disabled
-    heartbeat_out: 20000, // Typical value 20000 - every 20 seconds
-    reconnect_delay: 0,
-    debug: true // Will log diagnostics on console
-  };
-
-  connect() {
-    this._stompService = new StompService(this.StompConfig);
-    this._stompService.initAndConnect();
-
-    this.data_observable = this._stompService.subscribe('/waiting/' + this.globals.getLobbyKey().toLowerCase() + '/' +
-    this.userId + '/send-waiting');
-    this.data_subscription = this.data_observable.subscribe(this.onUpdate);
-
-    this.chat_observable = this._stompService.subscribe('/waiting/' + this.globals.getLobbyKey().toLowerCase() + '/send-chat');
-    this.chat_subscription = this.chat_observable.subscribe(this.onChatUpdate);
-
-    this.subscribed = true;
-
-    this.startPingingServer(this);
-  }
-
-  public startPingingServer(self: any) {
-
-    if(self.subscribed){
-      self._stompService.publish('/waiting-update/' + self.globals.getLobbyKey() + '/' +
-      self.userId +  '/update-waiting');
-      setInterval(this.startPingingServer, 500, self);
-    }
-  }
-
-  public onChatUpdate = (chat_observable: Message) => {
-
-    const payload = JSON.parse(chat_observable.body);
-    console.log(payload);
-    const message_user = payload['username'];
-    const message_body = payload['message'];
-    const userId = payload['userId'];
-    const time = payload['time'];
-
-    this.chats.push({
-      username: message_user,
-      message: message_body,
-      id: userId,
-      time: time
-    });
-  }
-
-  public onUpdate = (data_observable: Message) => {
-
-    const payload =  JSON.parse(data_observable.body);
-
-    console.log(payload);
-
-    console.log(payload['status']);
-
-    this.users = payload['players'];
-    console.log(this.users[0]['username']);
-    if (payload['status'] === 1) {
-      this.unsubscribe();
-      this.router.navigate(['game']);
-    }
-  }
-
-  public sendMessage() {
-
-    const username = this.globals.getUsername();
-    const message = $('#message_input').val();
-    $('#message_input').val('');
-
-    this._stompService.publish('/waiting-update/' + this.globals.getLobbyKey() + '/recive-chat', JSON.stringify({
-      username: username,
-      message: message,
-      userId: this.globals.getUserId()
-    }));
-  }
 
   public startGame(): void {
 

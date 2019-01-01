@@ -42,49 +42,8 @@
     </div>
   </div>
 </div>
-<div class="chatcontainer" style = "margin-left: auto; margin-right: auto; float: right;">
-    <div class="panel panel-primary">
-        <div class="panel-heading" id="accordion" style="background: #e98c01;">
-            <span class="glyphicon glyphicon-comment"></span> Chat
-            <div class="btn-group pull-right">
-                <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                    <span class="glyphicon glyphicon-chevron-up"></span>
-                </a>
-            </div>
-        </div>
-    <div class="panel-collapse collapse" id="collapseOne">
-        <div class="panel-body panel-body-extra">
-            <ul class="chat">
-                <ng-template ngFor let-chat [ngForOf]="chats">
-                    <li *ngIf="chat.id !== userId" class="left clearfix">
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>
-                                    {{chat.time}}
-                                </small>
-                            </div>
-                            <p>
-                                <strong>{{chat.username}}</strong>: {{chat.message}}
-                            </p>
-                        </div>
-                    </li>
-                    <li *ngIf="chat.id === userId" class="right clearfix">
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>
-                                    {{chat.time}}
-                                </small>
-                            </div>
-                            <p>
-                                <strong>You</strong>: {{chat.message}}
-                            </p>
-                        </div>
-                    </li>
-                </ng-template>
-            </ul>
-        </div>
+
+    
         <div class="panel-footer">
             <div class="input-group">
                 <input id="message_input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
