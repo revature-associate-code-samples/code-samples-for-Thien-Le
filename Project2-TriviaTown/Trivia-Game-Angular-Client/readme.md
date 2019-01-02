@@ -10,4 +10,4 @@
   
   For the client-side/front-end of the application, I used Angular to create a single page application. Using TypeScript to add populate players on the waiting page. Also, i wrote various databinding and DOM manipulation tasks.
 
- Technologies used include:  EC2, Agile, S3, RDS, DevOps, Continuous Integration, Spring, Angular, HTML5, Bootstrap, Java
+ Technologies used include:  **EC2, Agile, S3, RDS, DevOps, Continuous Integration, Spring, Angular, HTML5, Bootstrap, Java**
