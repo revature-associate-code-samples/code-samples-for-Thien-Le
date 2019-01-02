@@ -7,4 +7,4 @@ Managers can approve, deny, and view all reimbursement requests based on status 
 
 Both employees and managers have their own separate views based on account type. These sessions are managed via the use of the Java Servlet HttpSession interface in conjunction with AJAX to display the appropriate data. This is aided by the use of Java Servlets that display specific views based on session state, user role, and endpoint accessed.
 
-Technologies used include: Java, Servlets, JDBC, log4j, JUnit.
+Technologies used include: **Java, Servlets, JDBC, SQL, log4j, JUnit**
