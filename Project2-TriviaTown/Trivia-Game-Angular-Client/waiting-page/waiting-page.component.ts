@@ -36,8 +36,7 @@ export class WaitingPageComponent implements OnInit, OnDestroy {
       data: {
         key: self.globals.getLobbyKey()
       },
-      crossDomain: true,
-      xhrFields: { withCredentials: true },
+    
       success: function (res) {
         self.unsubscribe();
         self.disconnectOk = true;
@@ -75,10 +74,6 @@ export class WaitingPageComponent implements OnInit, OnDestroy {
       this.gameName = this.globals.getLobbyName();
       this.gameNumberOfQuestion = this.globals.getLobbyQuestions();
       this.userId = this.globals.getUserId();
-
-      console.log(this.gameCategory);
-      console.log(this.gameNumberOfQuestion);
-      console.log(this.userId);
       this.connect();
     }
   }
@@ -91,14 +86,6 @@ export class WaitingPageComponent implements OnInit, OnDestroy {
   public unsubscribe() {
     this.data_subscription = null;
     this.data_observable = null;
-    this.chat_observable = null;
-    this.chat_subscription = null;
-
-    //this._stompService.disconnect();
-    if(this.subscribed){
-      this._stompService.deactivate();
-      this.subscribed = false;
-    }
-    //this._stompService.
+    
   }
 }
