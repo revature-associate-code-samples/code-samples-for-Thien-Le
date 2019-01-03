@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,17 +18,21 @@ import com.revature.pojo.Reimbursement;
 import com.revature.pojo.User;
 import com.revature.service.ReimbursementService;
 
+/**
+ * manager servlet handling client requests.
+ * @author thienle
+ *
+ */
 @WebServlet("/manager")
 public class ManagerServlet extends HttpServlet {
 
 	static ReimbursementService reimbService = new ReimbursementService();
 	
-	
+	/**
+	 * Handling get request, returning reimbursement json.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		
 		
 		//consult service for data
 		List<Reimbursement> reimb = reimbService.getAllReimbursements();
@@ -46,8 +49,6 @@ public class ManagerServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		
-		
 		HttpSession session = req.getSession();
 		
 		User users = (User) session.getAttribute("user");
@@ -57,7 +58,6 @@ public class ManagerServlet extends HttpServlet {
 		int statusId = getStatusId(status);
 		
 		int reimbId = getReimbId(option);
-	
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm");  
 	    Date date = new Date();

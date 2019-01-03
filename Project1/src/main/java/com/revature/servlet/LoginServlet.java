@@ -14,12 +14,19 @@ import javax.servlet.http.HttpSession;
 import com.revature.pojo.User;
 import com.revature.service.UserService;
 
-
+/**
+ * Handling login request
+ * @author thienle
+ *
+ */
 //@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
 	static UserService uService = new UserService();
 	
+	/**
+	 * Handling get request
+	 */
 	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
@@ -28,6 +35,9 @@ public class LoginServlet extends HttpServlet {
 		req.getRequestDispatcher("login.html").forward(req, resp);
 		}
 	
+	/**
+	 * Handling post request for login.
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -40,23 +50,16 @@ public class LoginServlet extends HttpServlet {
 		//consult user service to obtain User with this info
 		User user = uService.validateUser(username, password);
 		
-		
-		
-		
 		PrintWriter out = resp.getWriter();
 		resp.setContentType("text/html");
 		
-		
+		// if login fails, forward to error page.
 		if(user == null) {
-			
 			req.getRequestDispatcher("error-login.html").forward(req, resp);
-			
 		}
-		else {
+		else { // successfully login, create cookie.
 			
 			int roleId = user.getRoleId();
-			//successful login
-			//add user to session
 			HttpSession session = req.getSession();
 			//create new session and returns it if none exists
 			session.setAttribute("user", user);

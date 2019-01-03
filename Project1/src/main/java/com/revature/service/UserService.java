@@ -1,13 +1,16 @@
  package com.revature.service;
 
-
-
 import java.util.List;
 
 import com.revature.dao.DAO;
 import com.revature.dao.UserDao;
 import com.revature.pojo.User;
 
+/**
+ * Servicing User, handling CRUD methods.
+ * @author thienle
+ *
+ */
 public class UserService {
 	
 	private static DAO<User, Integer> userDao = new UserDao();
@@ -41,10 +44,14 @@ public class UserService {
 		return u;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return user by id
+	 */
 	public User getUserById(Integer id) {
 		
 		User u = userDao.findById(id);
-		
 		return u;
 	}
 

@@ -14,10 +14,6 @@
 	</servlet-mapping>
   
   
-  
-  	
-
-  
   <servlet>
   	
   	<servlet-name>FrontController</servlet-name>

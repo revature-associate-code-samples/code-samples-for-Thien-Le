@@ -3,7 +3,6 @@ package com.revature.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -21,11 +20,14 @@ import com.revature.pojo.Reimbursement;
 import com.revature.pojo.User;
 import com.revature.service.ReimbursementService;
 
+/**
+ * reimbursements serlvet, handling verb methods.
+ * @author thienle
+ *
+ */
 @WebServlet("/reimbursements")
 public class ReimbursementServlet extends HttpServlet {
 	
-	
-
 	static ReimbursementService reimService = new ReimbursementService();
 	
 	private static Logger log = Logger.getLogger(ReimbursementServlet.class);

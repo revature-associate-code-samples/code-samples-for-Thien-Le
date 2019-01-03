@@ -1,7 +1,10 @@
 package com.revature.pojo;
 
-import java.util.Date;
-
+/**
+ * 
+ * @author thienle
+ *
+ */
 public class Reimbursement {
 	
 	private int reimbId;

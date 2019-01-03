@@ -1,7 +1,10 @@
 package com.revature.pojo;
 
-
-
+/**
+ * 
+ * @author thienle
+ *
+ */
 public class User {
 	
 	private int userId;

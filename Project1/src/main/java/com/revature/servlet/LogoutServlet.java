@@ -13,21 +13,25 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+/**
+ * logout servlet handling logout request.
+ * @author thienle
+ *
+ */
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet{
 	
 	private static Logger log = Logger.getLogger(LogoutServlet.class);
 	
-	
+	/**
+	 * get request handling logging out.
+	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
 		
 		HttpSession session = req.getSession(false);
 		
 		String toTrace = "LOGGING OUT SESSION WITH ATTRIBUTES: \n";
-		
 		
 		Enumeration<String> atts = session.getAttributeNames();
 		while(atts.hasMoreElements()) {
@@ -35,45 +39,39 @@ public class LogoutServlet extends HttpServlet{
 		}
 		log.trace(toTrace);
 		
-		
 		//invalidate session
 		if(session != null) {
 			session.invalidate();
 			log.trace("INVALIDATING SESSION: " + session.getId());
-			
 		}
 		
-		
-				
 		req.getRequestDispatcher("login.html").forward(req, resp);
 	}
 	
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException ,IOException {
 
-		
-		
 		HttpSession session = req.getSession(false);
 	
 		String toTrace = "LOGGING OUT SESSION WITH ATTRIBUTES: \n";
 	
 	
-	Enumeration<String> atts = session.getAttributeNames();
-	while(atts.hasMoreElements()) {
-		toTrace += atts.nextElement() + "\n";
-	}
-	log.trace(toTrace);
+		Enumeration<String> atts = session.getAttributeNames();
+		while(atts.hasMoreElements()) {
+			toTrace += atts.nextElement() + "\n";
+		}
+		log.trace(toTrace);
 	
 	
-	//invalidate session
-	if(session != null) {
-		session.invalidate();
-		log.trace("INVALIDATING SESSION: " + session.getId());
+		//invalidate session
+		if(session != null) {
+			session.invalidate();
+			log.trace("INVALIDATING SESSION: " + session.getId());
 	
-		//resp.sendRedirect("login.html");
+			//resp.sendRedirect("login.html");
 		
-	}
+		}
 	
-	req.getRequestDispatcher("login.html").forward(req, resp);
+		req.getRequestDispatcher("login.html").forward(req, resp);
 	}
 }

@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * homeServlet
+ * @author thienle
+ *
+ */
 @WebServlet("/loadHome")
 public class LoadHomeViewServlet extends HttpServlet {
 

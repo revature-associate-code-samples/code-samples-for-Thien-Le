@@ -3,6 +3,13 @@ package com.revature.dao;
 import java.util.List;
 import java.io.Serializable;
 
+/**
+ * Interfaces handling CRUD with database.
+ * @author thienle
+ *
+ * @param <T>
+ * @param <I>
+ */
 public interface DAO<T, I extends Serializable> {
 
 	List<T> findAll();

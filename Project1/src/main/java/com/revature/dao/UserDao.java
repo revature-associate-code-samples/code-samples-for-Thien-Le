@@ -11,8 +11,16 @@ import java.util.List;
 import com.revature.pojo.User;
 import com.revature.util.ConnectionFactory;
 
+/**
+ * Implementing DAO interfaces, handling CRUD methods
+ * @author thienle
+ *
+ */
 public class UserDao implements DAO<User, Integer> {
 
+	/**
+	 * Returning a list of users
+	 */
 	@Override
 	public List<User> findAll() {
 		
@@ -50,6 +58,9 @@ public class UserDao implements DAO<User, Integer> {
 		return user;
 	}
 
+	/**
+	 * Returning a user based on id.
+	 */
 	@Override
 	public User findById(Integer id) {
 
@@ -84,7 +95,12 @@ public class UserDao implements DAO<User, Integer> {
 		return temp;
 	}
 	
-	
+	/**
+	 * Validating user for login purpose.
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public User validateUser(String username, String password) {
 		
 		User temp = null;
@@ -123,6 +139,9 @@ public class UserDao implements DAO<User, Integer> {
 		return temp;
 	}
 
+	/**
+	 * Save a user.
+	 */
 	@Override
 	public User save(User obj) {
 

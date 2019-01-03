@@ -1,7 +1,6 @@
 package com.revature.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,8 +11,16 @@ import java.util.List;
 import com.revature.pojo.Reimbursement;
 import com.revature.util.ConnectionFactory;
 
+/**
+ * Implementing DAO interfaces, handling CRUD with database.
+ * @author thienle
+ *
+ */
 public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 
+	/**
+	 * Returning a list of reimbursement
+	 */
 	@Override
 	public List<Reimbursement> findAll() {
 		
@@ -47,6 +54,9 @@ public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 		return reimb;
 	}
 
+	/**
+	 * Returning reimbursement by id
+	 */
 	@Override
 	public Reimbursement findById(Integer id) {
 		
@@ -84,12 +94,14 @@ public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 		return reimb;
 	}
 
-	
+	/**
+	 * Returning a list of reimbursement based on author
+	 * @param id
+	 * @return
+	 */
 	public List<Reimbursement> findByUserId(Integer id) {
 		
 		List<Reimbursement> reimb = new ArrayList<>();
-		
-		
 		
 		try(Connection conn = ConnectionFactory.getInstance().getConnection()) {
 			
@@ -123,12 +135,14 @@ public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 		return reimb;
 	}
 	
-	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public List<Reimbursement> findByStatusId(Integer id) {
 		
 		List<Reimbursement> reimb = new ArrayList<>();
-		
-		
 		
 		try(Connection conn = ConnectionFactory.getInstance().getConnection()) {
 			
@@ -162,7 +176,9 @@ public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 		return reimb;
 	}
 	
-	
+	/**
+	 * Saving new reimbursement
+	 */
 	@Override
 	public Reimbursement save(Reimbursement obj) {
 		
@@ -194,13 +210,15 @@ public class ReimbursementDao implements DAO<Reimbursement, Integer> {
 		return obj;
 	}
 
+	/**
+	 * Updating reimbursement
+	 */
 	@Override
 	public Reimbursement update(Reimbursement obj) {
 
 		try(Connection conn = ConnectionFactory.getInstance().getConnection()){
 			
 			String sql = "update ers_reimbursement set reimb_resolved = ?, reimb_resolver = ?, reimb_status_id = ? where reimb_id = ?";
-			//String sql = "update bank_account set balance = ? where account_id = ?";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
