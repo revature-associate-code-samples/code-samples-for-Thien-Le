@@ -12,10 +12,17 @@ import com.revature.pojos.AccountType;
 import com.revature.pojos.BankAccount;
 import com.revature.util.ConnectionFactory;
 
+/**
+ * Handling CRUD with database.
+ * @author thienle
+ *
+ */
 public class BankAccountDao implements DAO<BankAccount, Integer> {
 		
 	
-	
+	/**
+	 * Return a list of BankAccount
+	 */
 	@Override
 	public List<BankAccount> findAll() {
 		
@@ -50,6 +57,11 @@ public class BankAccountDao implements DAO<BankAccount, Integer> {
 		return account;
 	}
 	
+	/**
+	 * Return a list of bank account of current user.
+	 * @param id
+	 * @return
+	 */
 	public List<BankAccount> findAllAccount(Integer id) {
 		
 		List<BankAccount> account = new ArrayList<>();
@@ -81,6 +93,9 @@ public class BankAccountDao implements DAO<BankAccount, Integer> {
 		return account;
 	}
 
+	/**
+	 * Return a BankAccount by id
+	 */
 	@Override
 	public BankAccount findById(Integer id) {
 		
@@ -112,6 +127,9 @@ public class BankAccountDao implements DAO<BankAccount, Integer> {
 		return a;
 	}
 
+	/**
+	 * Saving a BankAccount
+	 */
 	@Override
 	public BankAccount save(BankAccount obj) {
 		
@@ -145,6 +163,9 @@ public class BankAccountDao implements DAO<BankAccount, Integer> {
 		return obj;
 	}
 
+	/**
+	 * Updating a BankAccount
+	 */
 	@Override
 	public BankAccount update(BankAccount obj) {
 
@@ -167,6 +188,9 @@ public class BankAccountDao implements DAO<BankAccount, Integer> {
 		return null;
 	}
 
+	/**
+	 * Delete a BankAccount
+	 */
 	@Override
 	public void delete(BankAccount obj) {
 		

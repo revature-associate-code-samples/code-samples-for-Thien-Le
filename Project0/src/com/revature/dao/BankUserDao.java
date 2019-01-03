@@ -13,8 +13,16 @@ import com.revature.pojos.BankAccount;
 import com.revature.pojos.BankUser;
 import com.revature.util.ConnectionFactory;
 
+/**
+ * Handling CRUD with database
+ * @author thienle
+ *
+ */
 public class BankUserDao implements DAO<BankUser, Integer> {
 
+	/**
+	 * Return a list of BankUser
+	 */
 	@Override
 	public List<BankUser> findAll() {
 
@@ -49,6 +57,9 @@ public class BankUserDao implements DAO<BankUser, Integer> {
 		return user;
 	}
 
+	/**
+	 * Return a BankUser by id
+	 */
 	@Override
 	public BankUser findById(Integer id) {
 
@@ -81,7 +92,11 @@ public class BankUserDao implements DAO<BankUser, Integer> {
 		return a;
 	}
 	
-	
+	/**
+	 * Check if userName exist
+	 * @param username
+	 * @return
+	 */
 	public boolean checkUserName(String username) {
 
 		
@@ -106,7 +121,12 @@ public class BankUserDao implements DAO<BankUser, Integer> {
 		return false;
 	}
 	
-	
+	/**
+	 * Check userName and PassWord for login
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public BankUser checkUserNamePass(String username, String password) {
 		
 		BankUser a = null;
@@ -138,7 +158,9 @@ public class BankUserDao implements DAO<BankUser, Integer> {
 		return a;
 	}
 	
-	
+	/**
+	 * Save a BankUser
+	 */
 	@Override
 	public BankUser save(BankUser obj) {
 		

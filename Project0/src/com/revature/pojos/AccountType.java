@@ -1,5 +1,10 @@
 package com.revature.pojos;
 
+/**
+ * 
+ * @author thienle
+ *
+ */
 public class AccountType {
 	
 	private int typeId;

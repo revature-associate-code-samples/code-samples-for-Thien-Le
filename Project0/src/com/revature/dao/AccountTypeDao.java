@@ -13,10 +13,17 @@ import com.revature.util.ConnectionFactory;
 
 import oracle.jdbc.internal.OracleTypes;
 
+/**
+ * Handling CRUD with database.
+ * @author thienle
+ *
+ */
 public class AccountTypeDao implements DAO<AccountType, Integer> {
 
 	
-	
+	/**
+	 * Return a list of account type.
+	 */
 	@Override
 	public List<AccountType> findAll() {
 		
