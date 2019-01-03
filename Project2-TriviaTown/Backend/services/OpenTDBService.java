@@ -46,18 +46,7 @@ public class OpenTDBService {
 		
 	}
 
-	// Read JSON from Trivia API and convert it into a "data transfer" object
-	public static OpenTDBAPIJson readJsonWithObjectMapper(String urlString) throws IOException {
-		
-//		String hardcode = "{\"response_code\":0,\"results\":[{\"category\":\"General Knowledge\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"Which sign of the zodiac is represented by the Crab?\",\"correct_answer\":\"Cancer\",\"incorrect_answers\":[\"Libra\",\"Virgo\",\"Sagittarius\"]},{\"category\":\"History\",\"type\":\"multiple\",\"difficulty\":\"easy\",\"question\":\"The collapse of the Soviet Union took place in which year?\",\"correct_answer\":\"1991\",\"incorrect_answers\":[\"1992\",\"1891\",\"1990\"]},{\"category\":\"Entertainment: Music\",\"type\":\"boolean\",\"difficulty\":\"medium\",\"question\":\"Ashley Frangipane performs under the stage name Halsey.\",\"correct_answer\":\"True\",\"incorrect_answers\":[\"False\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"multiple\",\"difficulty\":\"hard\",\"question\":\"What is the fastest speed possible in Trackmania&sup2;: Stadium?\",\"correct_answer\":\"1000  km\\/h\",\"incorrect_answers\":[\"500 km\\/h\",\"320 km\\/h\",\"100 km\\/h\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"boolean\",\"difficulty\":\"easy\",\"question\":\"The ultimate phrase used by Pharah from Overwatch is: &quot;Justice rains from above!&quot;\",\"correct_answer\":\"True\",\"incorrect_answers\":[\"False\"]},{\"category\":\"History\",\"type\":\"boolean\",\"difficulty\":\"medium\",\"question\":\"Adolf Hitler was accepted into the Vienna Academy of Fine Arts.\",\"correct_answer\":\"False\",\"incorrect_answers\":[\"True\"]},{\"category\":\"Geography\",\"type\":\"multiple\",\"difficulty\":\"hard\",\"question\":\"The Andaman and Nicobar Islands in South East Asia are controlled by which country?\",\"correct_answer\":\"India\",\"incorrect_answers\":[\"Vietnam\",\"Thailand\",\"Indonesia\"]},{\"category\":\"Entertainment: Video Games\",\"type\":\"boolean\",\"difficulty\":\"medium\",\"question\":\"In &quot;League of Legends&quot;, there exists four different types of Dragon.\",\"correct_answer\":\"False\",\"incorrect_answers\":[\"True\"]},{\"category\":\"Geography\",\"type\":\"multiple\",\"difficulty\":\"hard\",\"question\":\"What is the capital of Mauritius?\",\"correct_answer\":\"Port Louis\",\"incorrect_answers\":[\"Port Moresby\",\"Port Vila\",\"Port-au-Prince\"]},{\"category\":\"Entertainment: Books\",\"type\":\"multiple\",\"difficulty\":\"hard\",\"question\":\"In the Magic: The Gathering universe,  the Antiquities, Ice Age, and Alliances expansions take place on which continent?\",\"correct_answer\":\"Terisiare\",\"incorrect_answers\":[\"Aerona\",\"Shiv\",\"Jamuraa\"]}]}";
-		
-		// Create a URL object from the String
-		URL url = new URL(urlString);
-		ObjectMapper mapper = new ObjectMapper();
-		OpenTDBAPIJson obj = mapper.readValue(url, OpenTDBAPIJson.class);
-//		APIJson obj = mapper.readValue(hardcode, APIJson.class);
-		return obj;
-	}
+	
 
 	// Convert category string name to its corresponding category number according to the API
 	public static int convertCategoryToInt(String category) {
