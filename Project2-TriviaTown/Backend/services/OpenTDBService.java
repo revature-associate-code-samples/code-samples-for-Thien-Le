@@ -29,7 +29,7 @@ public class OpenTDBService {
 			
 			// Retrieve JSON string from API and map it to a "data transfer object"
 			// This APIJson includes the response code
-			OpenTDBAPIJson objJson = readJsonWithObjectMapper(urlString);
+			APIJson objJson = readJsonWithObjectMapper(urlString);
 			// Get the JSON associated with only the array of questions (without the response code)
 			QuestionJson[] question = objJson.getResults();
 			
@@ -46,7 +46,17 @@ public class OpenTDBService {
 		
 	}
 
-	
+	// Read JSON from Trivia API and convert it into a "data transfer" object
+	public static APIJson readJsonWithObjectMapper(String urlString) throws IOException {
+		
+
+		// Create a URL object from the String
+		URL url = new URL(urlString);
+		ObjectMapper mapper = new ObjectMapper();
+		APIJson obj = mapper.readValue(url, APIJson.class);
+//		APIJson obj = mapper.readValue(hardcode, APIJson.class);
+		return obj;
+	}
 
 	// Convert category string name to its corresponding category number according to the API
 	public static int convertCategoryToInt(String category) {
@@ -65,38 +75,6 @@ public class OpenTDBService {
 			System.out.println("wrong category");	// Should throw an exception here
 			return 1;
 		}
-	}
-
-	/**
-	 * Populates a QuestionBean in the correct usable game format
-	 */
-	public static QuestionBean createQuestionBean(QuestionJson qj) {
-		QuestionBean question = new QuestionBean();
-		question.setCategory(new StringBuffer(qj.getCategory().toLowerCase()));
-		if (qj.getType().equals("multiple")) {
-			question.setMultipleChoice(true);
-		}
-		else {
-			question.setMultipleChoice(false);
-		}
-		question.setDifficulty(new StringBuffer(qj.getDifficulty()));
-		question.setQuestion(new StringBuffer(qj.getQuestion()));
-		question.addAnswer(new StringBuffer(qj.getCorrect_answer())); 	// Add correct answer
-		for (String a : qj.getIncorrect_answers()) {
-			question.addAnswer(new StringBuffer(a));					// Add incorrect answers
-		}
-		question.randomizeAnswers();   									// Randomize the answers vector
-		int i = 0;
-		for (StringBuffer a : question.getAnswers()) {					// Set index of correct answer
-			if (qj.getCorrect_answer().equals(a.toString())) {
-				question.setCorrectIndex(i);
-				break;
-			}
-			else {
-				i++;
-			}
-		}		
-		return question;
 	}
 
 }
